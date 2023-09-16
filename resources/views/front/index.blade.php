@@ -4,7 +4,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 mb-5">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 mb-5">
     <div class="container py-2">
       <a class="navbar-brand text-primary" href="#" style="font-family: poppins"><strong>Cyber Media</strong></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,9 +12,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-          <a class="nav-link" href="#">Features</a>
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link active" aria-current="page" href="#">Tech</a>
+          <a class="nav-link" href="#">Games</a>
+          <a class="nav-link" href="#">Lainnya</a>
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@
   <div>
     @yield('content')
 
-    <div class="container-fluid">
+    <div class="container">
         <nav aria-label="Page navigation example">
             <ul class="pagination">
               <li class="page-item">

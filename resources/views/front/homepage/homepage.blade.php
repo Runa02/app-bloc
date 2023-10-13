@@ -78,7 +78,7 @@
         </div>
         <div>
           <div class="resume-section">
-            <div class="judul-text" style="font-family: poppins">
+            <div class="judul-text" style="">
               <h2>Artikel Terbaru</h2>
             </div>
             @for ($i = 0; $i < 5; $i++)

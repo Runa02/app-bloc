@@ -11,11 +11,16 @@
                         <div>
                             <h5 class="mb-0">Administrator's Article</h5>
                         </div>
-                        <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New User</a>
+                        <a href="{{route('article-management')}}" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; Tambah Artikel</a>
                     </div>
                 </div>
-                <div class="card-body px-0 pt-0 pb-2">
+                <div class="card-body px-0 pt-0 pb-2 mt-4">
                     <div class="table-responsive p-0">
+                        @if (Session::has('message'))
+                            <div class="alert alert-success">
+                                {{Session::get('message')}}
+                            </div>
+                        @endif
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
@@ -34,25 +39,30 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ( $datas as $data )
                                 <tr>
                                     <td class="ps-4">
-                                        <p class="text-xs font-weight-bold mb-0">1</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{$loop -> iteration}}</p>
                                     </td>
                                     <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold">Coba</span>
+                                        <span class="text-secondary text-xs font-weight-bold">{{$data -> judul}}</span>
                                     </td>
                                     <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
+                                        <span class="text-secondary text-xs font-weight-bold">{{$data -> created_at}}</span>
                                     </td>
                                     <td class="text-center">
-                                        <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit user">
-                                            <i class="fas fa-user-edit text-secondary"></i>
+                                        <form action="{{route('article-delete', $data->id)}}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        @method('delete')
+                                        <a href="{{route('article-detail', $data -> id)}}" class="mx-3">
+                                            <i class="fas fa-newspaper"></i>
                                         </a>
                                         <span>
-                                            <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                            <i role="button" class="cursor-pointer fas fa-trash text-secondary deleteButton"></i>
                                         </span>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -61,5 +71,48 @@
         </div>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+// Menangani klik tombol "Delete"
+  $('.deleteButton').click(function (e) {
+  e.preventDefault(); // Mencegah form dikirim secara langsung
+  
+  const form = $(this).closest('form'); // Find the nearest form element
+  
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger mr-3'
+    },
+    buttonsStyling: false
+  });
+
+  swalWithBootstrapButtons.fire({
+    title: 'Sudah Yakin?',
+    text: "Perubahan tidak akan bisa dikembalikan",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yakin',
+    cancelButtonText: 'Tidak',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Jika pengguna mengonfirmasi, kirim form penghapusan
+      form.submit(); // Submit only the form associated with the clicked button
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      swalWithBootstrapButtons.fire(
+        'Dibatalkan',
+        'Tidak ada perubahan terhadap data ini',
+        'error'
+      );
+    }
+  });
+});
+});
+
+</script>
  
 @endsection

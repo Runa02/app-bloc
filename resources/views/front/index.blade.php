@@ -8,7 +8,7 @@
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 mb-5">
     <div class="container py-2">
-      <a class="navbar-brand text-primary" href="#" style="font-family: poppins"><strong>Cyber Media</strong></a>
+      <a class="navbar-brand text-primary" href="#" style=""><strong>Cyber Media</strong></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

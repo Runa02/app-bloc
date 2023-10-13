@@ -8,8 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Front extends Model
 {
     use HasFactory;
-    public function index()
+    protected $fillable = ([
+        'judul',
+        'sumber',
+        'kategori_id',
+        'image',
+        'konten',
+    ]);
+
+    public function Kategori()
     {
-        return view('front.homepage.homepage');
+        return $this->belongsTo(Kategori::class, 'kategori_id');
     }
 }

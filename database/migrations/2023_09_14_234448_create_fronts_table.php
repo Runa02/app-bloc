@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('fronts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('kategori_id');
+            $table->foreign('kategori_id')->references('id')->on('kategoris')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('judul');
+            $table->string('sumber');
+            $table->string('image');
+            $table->string('konten');
             $table->timestamps();
         });
     }

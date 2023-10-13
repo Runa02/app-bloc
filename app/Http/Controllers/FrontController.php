@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
-    public function index()
-    {
+    public function index(){
         return view('front.homepage.homepage');
+    }
+
+    public function artikel(){
+        return view('front.artikelpage.artikel');
     }
 }

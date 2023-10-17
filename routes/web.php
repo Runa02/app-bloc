@@ -27,7 +27,7 @@ Route::get('/login', [HomeController::class, 'login'])->name('login');
 
 Route::group(['middleware' => 'auth'], function () {
 
-	Route::get('/', [HomeController::class, 'home']);
+	Route::get('/', [FrontController::class, 'index']);
 	Route::get('dashboard', function () {
 		return view('dashboard');
 	})->name('dashboard');
@@ -85,6 +85,11 @@ Route::group(['middleware' => 'auth'], function () {
 	// Route::get('/login', function () {
 	// 	return view('dashboard');
 	// })->name('sign-up');
+
+
+    // front
+    Route::get('/artikel', [FrontController::class, 'artikel'])->name('artikel.page');
+    Route::get('/category', [FrontController::class, 'category'])->name('category.page');
 });
 
 

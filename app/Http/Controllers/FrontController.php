@@ -16,4 +16,8 @@ class FrontController extends Controller
     public function artikel(){
         return view('front.artikelpage.artikel');
     }
+
+    public function category(){
+        return view('front.homepage.category');
+    }
 }

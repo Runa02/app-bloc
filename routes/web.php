@@ -27,7 +27,7 @@ Route::get('/login', [HomeController::class, 'login'])->name('login');
 
 Route::group(['middleware' => 'auth'], function () {
 
-	Route::get('/', [HomeController::class, 'home']);
+	Route::get('/', [FrontController::class, 'index']);
 	Route::get('dashboard', function () {
 		return view('dashboard');
 	})->name('dashboard');
@@ -99,6 +99,3 @@ Route::group(['middleware' => 'guest'], function () {
 	Route::get('/reset-password/{token}', [ResetController::class, 'resetPass'])->name('password.reset');
 	Route::post('/reset-password', [ChangePasswordController::class, 'changePassword'])->name('password.update');
 });
-
-
-

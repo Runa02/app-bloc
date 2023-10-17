@@ -81,24 +81,26 @@
             <div class="judul-text" style="">
               <h2>Artikel Terbaru</h2>
             </div>
-            @for ($i = 0; $i < 5; $i++)
+            {{-- @for ($i = 0; $i < 5; $i++) --}}
+            @foreach ($datas as $data )  
             <div class="card mb-3 p-3" style="max-width: 100%;">
               <div class="row">
                 <div class="col-md-4">
-                  <img src="{{ asset("img/WKWKW.png") }}" class="img-fluid rounded-start" alt="...">
+                  <img src="{{asset('/storage/'.$data->image)}}" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                      <span class="badge bg-primary">Games</span>
+                      <span class="badge bg-primary articleCategory">{{$data -> kategori -> kategori}}</span>
                     <div class="mt-4">
-                      <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <h5 class="card-title">{{$data -> judul}}</h5>
+                    <p class="card-text">{{$data -> konten}}</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            @endfor
+            @endforeach
+            {{-- @endfor --}}
           </div>
         </div>
       </div>

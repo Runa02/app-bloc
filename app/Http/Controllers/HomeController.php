@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
-    public function login () {
+    public function login()
+    {
         return view('session.login-session');
     }
 
@@ -35,11 +36,11 @@ class HomeController extends Controller
         $datas = Kategori::all();
         return view('laravel-examples/article-management', compact('datas'));
     }
-    
+
     public function store(Request $request)
     {
         $this->validate($request, [
-            'judul' => 'required|max:50',
+            'judul' => 'required',
             'sumber' => 'required',
             'kategori_id' => 'required', // Update the validation rule to 'kategori_id'
             'image' => 'required',

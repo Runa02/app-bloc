@@ -92,8 +92,14 @@
                   <div class="card-body">
                       <span class="badge bg-primary articleCategory">{{$data -> kategori -> kategori}}</span>
                     <div class="mt-4">
-                      <h5 class="card-title">{{$data -> judul}}</h5>
-                    <p class="card-text">{{$data -> konten}}</p>
+                      <h5 class="card-title"><span>{{$data -> judul}}</span></h5>
+                      <p class="card-text">
+                        {{ Str::limit($data->konten, 200) }} <!-- Display the first 200 characters of 'konten' -->
+                        @if (strlen($data->konten) > 200)
+                            <a href="{{ route('detail-konten', ['id' => $data->id]) }}">Read More</a>
+                        @endif
+                    </p>
+                    
                     </div>
                   </div>
                 </div>

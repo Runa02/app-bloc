@@ -27,7 +27,7 @@ Route::get('/login', [HomeController::class, 'login'])->name('login');
 
 Route::group(['middleware' => 'auth'], function () {
 
-	Route::get('/', [FrontController::class, 'index']);
+	Route::get('/', [FrontController::class, 'index'])->name('landing');
 	Route::get('dashboard', function () {
 		return view('dashboard');
 	})->name('dashboard');
@@ -52,6 +52,9 @@ Route::group(['middleware' => 'auth'], function () {
 		'article-management/post',
 		[HomeController::class, 'store']
 	)->name('article-management-store');
+
+	Route::get('/full-content/{id}', [FrontController::class, 'konten'])->name('detail-konten');
+
 
 	Route::get(
 		'/article-detail/{id}',

@@ -13,11 +13,19 @@ class FrontController extends Controller
         return view('front.homepage.homepage', compact('datas'));
     }
 
-    public function artikel(){
+    public function konten($id)
+    {
+        $data = Front::find($id);
+        return view('front.artikelpage.artikel', compact('data'));
+    }
+
+    public function artikel()
+    {
         return view('front.artikelpage.artikel');
     }
 
-    public function category(){
+    public function category()
+    {
         return view('front.homepage.category');
     }
 }

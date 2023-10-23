@@ -45,7 +45,7 @@
                             <div class="form-group">
                                 <label for="user-email" class="form-control-label">{{ __('Kategori') }}</label>
                                 <div>
-                                    <input class="form-control" type="text" placeholder="Games" name="kategori" value="{{$data -> kategori}}">
+                                    <input class="form-control" type="text" placeholder="Games" name="kategori" value="{{$data -> kategori -> kategori}}">
                                 </div>
                             </div>
                         </div>

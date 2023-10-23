@@ -20,7 +20,7 @@ class KategoriSeeder extends Seeder
             'kategori' => 'Gadgets'
         ]);
         Kategori::create([
-            'kategori' => 'Items'
+            'kategori' => 'Tips'
         ]);
         Kategori::create([
             'kategori' => 'Software'

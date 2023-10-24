@@ -83,28 +83,30 @@
             </div>
             {{-- @for ($i = 0; $i < 5; $i++) --}}
             @foreach ($datas as $data )  
-            <div class="card mb-3 p-3" style="max-width: 100%;">
-              <div class="row">
-                <div class="col-md-4">
-                  <img src="{{asset('/storage/'.$data->image)}}" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                      <span class="badge bg-primary articleCategory">{{$data -> kategori -> kategori}}</span>
-                    <div class="mt-4">
-                      <h5 class="card-title"><span>{{$data -> judul}}</span></h5>
-                      <p class="card-text">
-                        {{ Str::limit($data->konten, 200) }} <!-- Display the first 200 characters of 'konten' -->
-                        @if (strlen($data->konten) > 200)
-                            <a href="{{ route('detail-konten', ['id' => $data->id]) }}">Read More</a>
-                        @endif
-                    </p>
-                    
+            <a href="{{ route('detail-konten', ['id' => $data->id]) }}" class="text-black" style="text-decoration: none;">
+              <div class="card mb-3 p-3" style="max-width: 100%;">
+                <div class="row">
+                  <div class="col-md-4">
+                    <img src="{{asset('/storage/'.$data->image)}}" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                        <span class="badge bg-primary articleCategory">{{$data -> kategori -> kategori}}</span>
+                      <div class="mt-4">
+                        <h5 class="card-title"><span>{{$data -> judul}}</span></h5>
+                        <p class="card-text">
+                          {{ Str::limit($data->konten, 200) }} <!-- Display the first 200 characters of 'konten' -->
+                          @if (strlen($data->konten) > 200)
+                              <a href="{{ route('detail-konten', ['id' => $data->id]) }}">Read More</a>
+                          @endif
+                      </p>
+                      
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
             @endforeach
             {{-- @endfor --}}
           </div>

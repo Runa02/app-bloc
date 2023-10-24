@@ -110,6 +110,7 @@
           </div>
         </div>
       </div>
+      
       <div class="col-5 offset-1">
         <div class="resume-section">
           <div class="judul-text" style="font-family: poppins">
@@ -119,13 +120,16 @@
           <div class="card mb-3" style="max-width: 540px;">
             <div class="card-body d-flex">
               <h3 class="card-title me-2">{{ $i }} </h3>
-              <small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit ullam amet nulla sequi, a quia architecto voluptatibus aliquam illo praesentium?</small>
+              <small class="text-muted">
+                <a href="{{ route('detail-konten', ['id' => $data->id]) }}" class="text-black" style="text-decoration: none;">{{$data -> judul}}</a>       
+              </small>
             </div>
           </div>
           @endfor
         </div>
       </div>
     </div>
+    {{$datas->links('pagination::bootstrap-5')}}  
     {{-- <div class="row row-cols-2 row-cols-md-2">
       <div class="col">
         <div class="card" style="width: 25rem;">
@@ -146,7 +150,9 @@
   </div>
 </div>
 
-<div class="container">
+
+
+{{-- <div class="container">
   <nav aria-label="Page navigation example">
       <ul class="pagination">
         <li class="page-item">
@@ -164,5 +170,7 @@
         </li>
       </ul>
     </nav>
-</div>
+</div> --}}
+
+
 @endsection

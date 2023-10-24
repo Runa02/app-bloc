@@ -7,9 +7,12 @@ use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $datas = Front::all();
+        $pagination = 5;
+        $datas = Front::where(function ($q) use ($request) {
+            $q->where('judul', 'LIKE', '%' . $request->search . '%');
+        })->orderBy('id', 'asc')->paginate($pagination);
         return view('front.homepage.homepage', compact('datas'));
     }
 

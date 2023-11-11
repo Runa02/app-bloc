@@ -27,8 +27,68 @@ class FrontController extends Controller
         return view('front.artikelpage.artikel');
     }
 
-    public function category()
+    public function category_gadget(Request $request)
     {
-        return view('front.homepage.category');
+        $pagination = 5;
+
+        $datas = Front::where(function ($q) use ($request) {
+            $q->where('judul', 'LIKE', '%' . $request->search . '%');
+        })
+            ->whereHas('kategori', function ($q) {
+                $q->where('kategori', 'Gadgets');
+            })
+            ->orderBy('id', 'asc')
+            ->paginate($pagination);
+
+        return view('front.homepage.category_gadget', compact('datas'));
+    }
+
+
+    public function category_games(Request $request)
+    {
+        $pagination = 5;
+
+        $datas = Front::where(function ($q) use ($request) {
+            $q->where('judul', 'LIKE', '%' . $request->search . '%');
+        })
+            ->whereHas('kategori', function ($q) {
+                $q->where('kategori', 'Games');
+            })
+            ->orderBy('id', 'asc')
+            ->paginate($pagination);
+
+        return view('front.homepage.category_games', compact('datas'));
+    }
+
+    public function category_tips(Request $request)
+    {
+        $pagination = 5;
+
+        $datas = Front::where(function ($q) use ($request) {
+            $q->where('judul', 'LIKE', '%' . $request->search . '%');
+        })
+            ->whereHas('kategori', function ($q) {
+                $q->where('kategori', 'Tips');
+            })
+            ->orderBy('id', 'asc')
+            ->paginate($pagination);
+
+        return view('front.homepage.category_tips', compact('datas'));
+    }
+
+    public function category_software(Request $request)
+    {
+        $pagination = 5;
+
+        $datas = Front::where(function ($q) use ($request) {
+            $q->where('judul', 'LIKE', '%' . $request->search . '%');
+        })
+            ->whereHas('kategori', function ($q) {
+                $q->where('kategori', 'Software');
+            })
+            ->orderBy('id', 'asc')
+            ->paginate($pagination);
+
+        return view('front.homepage.category_gadget', compact('datas'));
     }
 }

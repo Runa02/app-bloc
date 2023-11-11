@@ -90,9 +90,12 @@ Route::group(['middleware' => 'auth'], function () {
 	// })->name('sign-up');
 
 
-    // front
-    Route::get('/artikel', [FrontController::class, 'artikel'])->name('artikel.page');
-    Route::get('/category', [FrontController::class, 'category'])->name('category.page');
+	// front
+	Route::get('/artikel', [FrontController::class, 'artikel'])->name('artikel.page');
+	Route::get('/category_gadget', [FrontController::class, 'category_gadget'])->name('category.gadget');
+	Route::get('/category_games', [FrontController::class, 'category_games'])->name('category.games');
+	Route::get('/category_tips', [FrontController::class, 'category_tips'])->name('category.tips');
+	Route::get('/category_software', [FrontController::class, 'category_software'])->name('category.software');
 });
 
 

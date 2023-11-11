@@ -14,10 +14,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" aria-current="page" href="{{ route('category.page') }}">Gadget</a>
-          <a class="nav-link" href="{{ route('category.page') }}">Games</a>
-          <a class="nav-link" href="{{ route('category.page') }}">Tips</a>
-          <a class="nav-link" href="{{ route('category.page') }}">Software</a>
+          <a class="nav-link" aria-current="page" href="{{ route('category.gadget') }}">Gadget</a>
+          <a class="nav-link" href="{{ route('category.games') }}">Games</a>
+          <a class="nav-link" href="{{ route('category.tips') }}">Tips</a>
+          <a class="nav-link" href="{{ route('category.software') }}">Software</a>
         </div>
       </div>
       <div class="row">
